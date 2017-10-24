@@ -6,4 +6,6 @@ public class Statement {
 
     private StatementType statementType;
 
+    private String content;
+
 }
