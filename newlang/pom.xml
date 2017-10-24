@@ -24,5 +24,6 @@
   </dependencies>
   <modules>
     <module>compiler</module>
+    <module>starter</module>
   </modules>
 </project>
