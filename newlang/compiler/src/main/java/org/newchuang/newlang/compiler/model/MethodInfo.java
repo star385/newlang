@@ -13,6 +13,8 @@ public class MethodInfo {
 
     private List<Statement> statements;
 
+    private List<MethodParameter> parameters;
+
     public Visibility getVisibility() {
         return visibility;
     }
@@ -35,5 +37,13 @@ public class MethodInfo {
 
     public void setStatements(List<Statement> statements) {
         this.statements = statements;
+    }
+
+    public List<MethodParameter> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(List<MethodParameter> parameters) {
+        this.parameters = parameters;
     }
 }

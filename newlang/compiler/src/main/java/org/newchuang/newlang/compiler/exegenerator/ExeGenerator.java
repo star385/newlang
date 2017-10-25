@@ -1,5 +1,7 @@
 package org.newchuang.newlang.compiler.exegenerator;
 
-public interface ExeGenerator {
+import org.newchuang.newlang.compiler.model.NLFileStructure;
 
+public interface ExeGenerator {
+    ExecutorGenrateResult generateExecutor(NLFileStructure file);
 }
