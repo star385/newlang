@@ -10,6 +10,8 @@ public class NLFileStructure {
 
     private List<ClassInfo> classInfos;
 
+    private ClassInfo mainClassInfo;
+
     public String getNs() {
         return ns;
     }
@@ -32,5 +34,13 @@ public class NLFileStructure {
 
     public void setClassInfos(List<ClassInfo> classInfos) {
         this.classInfos = classInfos;
+    }
+
+    public ClassInfo getMainClassInfo() {
+        return mainClassInfo;
+    }
+
+    public void setMainClassInfo(ClassInfo mainClassInfo) {
+        this.mainClassInfo = mainClassInfo;
     }
 }

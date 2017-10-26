@@ -12,9 +12,64 @@ pub：跟Java的public完全相同，所有函数的pub关键字是可以省略�
 pro：跟Java的protected完全相同。
 +：修饰函数和变量，表示静态。
 obj:其实就是Object，用obj a可以定义一个Object类型的变量，它可以被赋值为任何值
+func:定义一个函数,实际每实例方法和类方法都是一个func,但是可以省略
+return:返回
 
 newlang跟Java语法几乎没有什么不同，只是要简洁很多，主要的区别如下：
 1.newlang不要求句末必须有分号
 2.所有的属性默认为pri的，但是你仍然可以通过点操作符去取值或者赋值，实际是调用的getter和setter方法。所有的方法默认都是pub的，你无需书写pub关键字
 3.逗号，分号，换行都是语句分隔符，没有任何区别
 4.newlang具有弱类型的性质，但是如果您已经指定了为某一变量指定了自定义类型，不可被赋值为改类型派生类型除外的其他类型。
+5.允许多个返回值,定义返回值,不必要有return语句
+  class MultiReturnTest {
+      // 2个返回值，分别是数字和字符串
+      num, str method1() {
+          return 1,"123"
+      }
+      
+      // 2个返回值，执行后，都是null
+      num, str method2() {
+      
+      }
+      
+      + main(str args[]) {
+          num a,str b
+          
+          // 执行以后,a=1,b="123"
+          a,b = method1()
+          
+          // 执行以后a=null，b=null
+          a,b = method2()
+          
+          // 执行以后，a=1，第二个返回值被忽略
+          a = method1()
+          
+          // 执行以后，b="123"，第一个返回值忽略
+          ,b = method1()
+      }
+  }
+6.可以把函数作为参数传给别的函数，或者定义局部函数
+  class FuncTest {
+      func1(func args, num a) {
+      	num b = doSomeThing()
+      	args(a, b)
+      }
+      
+      func2(num a, num b) {
+        sys.out(a + "\t")
+        sys.out(b)
+      }
+      
+      func3() {
+      	num c = doAnotherThing()
+      	func1(this.func2, c)
+      }
+      
+      func4() {
+        func localFunc = func(num a, num b) {
+        	saveToDB(a, b)
+        }
+        d = 1
+        this.func1(localFunc, d)
+      }
+  }

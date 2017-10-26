@@ -62,9 +62,7 @@ public abstract class AbstractCompiler implements Compiler {
         return exeGenerator;
     }
 
-    protected ExeGenerator createExeGenerator() {
-        return null;
-    }
+    protected abstract ExeGenerator createExeGenerator();
 
     private NLFileParser getNLFileParser() {
         if (fileParser == null) {
